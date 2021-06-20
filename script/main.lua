@@ -6,6 +6,7 @@ for i,v in next, workspace:GetDescendants() do
 	end
 end
 
+getgenv().AutoFarmReal = getgenv().IFood
 getgenv().AutoFarm = true
 
 local function TweenFuncion(HaveQuest)
@@ -119,4 +120,21 @@ while true do wait()
 			return
 		end
 	end
+end
+
+while true do wait(0.1)
+    if getgenv().Caixa == true then
+        local Caixa = game:GetService("Workspace").Caixa.Trabalhador
+        if Caixa.Value == game.Players.LocalPlayer.Name then
+            for _,CaixaColors in pairs(Caixa.Parent.Teclas:GetChildren()) do
+                if CaixaColors:IsA("Part") and CaixaColors.Color == Color3.fromRGB(85, 255, 0) then
+                    local Detectors = CaixaColors.ClickDetector
+                    fireclickdetector(Detectors)
+                end
+            end
+        else
+            local Trabalhar = Caixa.Parent.Trabalhar.ClickDetector
+            fireclickdetector(Trabalhar)
+        end 
+    end
 end

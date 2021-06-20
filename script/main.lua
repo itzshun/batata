@@ -49,7 +49,7 @@ local function TweenFuncion(HaveQuest)
 					HaveQuest = false
 					Rig.Anchored = false
                     if Rig:FindFirstChild("Bolsa") then
-                        return Returrn
+                        getgenv().AutoFarm = true
                     else
                         getgenv().AutoFarm = true
                     end
@@ -98,10 +98,7 @@ local function TweenFuncion(HaveQuest)
                     if Rig:FindFirstChild("Bolsa") then
                         getgenv().AutoFarm = true
                     else
-                        repeat wait()
-                            local Promt = game:GetService("Workspace").KainaGOI.PegarBolsa.ProximityPrompt
-                            fireProximityPrompt(Promt)
-                        until Rig:FindFirstChild("Bolsa")
+                        getgenv().AutoFarm = true
                     end
 				end)
 			end)

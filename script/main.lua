@@ -45,10 +45,11 @@ local function TweenFuncion(HaveQuest)
 				InQuestStart:Play()
 				InQuestStart.Completed:Connect(function()
 					wait(1)
+					local Returrn = {}
 					HaveQuest = false
 					Rig.Anchored = false
                     if Rig:FindFirstChild("Bolsa") then
-                        return InQuestStart
+                        return Returrn
                     else
                         getgenv().AutoFarm = true
                     end
@@ -92,13 +93,15 @@ local function TweenFuncion(HaveQuest)
 					wait(1)
 					HaveQuest = true
 					Rig.Anchored = false
-                    local RTZ = {}
 					local Promt = game:GetService("Workspace").KainaGOI.PegarBolsa.ClickDetector
 					fireclickdetector(Promt)
                     if Rig:FindFirstChild("Bolsa") then
                         getgenv().AutoFarm = true
                     else
-                        return InQuestStart
+                        repeat wait()
+                            local Promt = game:GetService("Workspace").KainaGOI.PegarBolsa.ProximityPrompt
+                            fireProximityPrompt(Promt)
+                        until Rig:FindFirstChild("Bolsa")
                     end
 				end)
 			end)

@@ -6,7 +6,6 @@ for i,v in next, workspace:GetDescendants() do
 	end
 end
 
-getgenv().AutoFarmReal = true
 getgenv().AutoFarm = true
 
 local function TweenFuncion(HaveQuest)
